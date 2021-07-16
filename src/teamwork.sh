@@ -80,7 +80,7 @@ teamwork::reminder() {
 PR is still open: **$pr_title**
 [$pr_url]($pr_url)
 
-Please review and provide feedback or merge and release
+Please review and provide feedback or merge and release.
   "
 }
 
