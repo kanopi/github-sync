@@ -17,7 +17,6 @@ main() {
   export TEAMWORK_URI="$2"
   export TEAMWORK_API_TOKEN="$3"
   export AUTOMATIC_TAGGING="$4"
-  export AUTOMATIC_TAGGING="$5"
 
   env::set_environment
 
