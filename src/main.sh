@@ -17,6 +17,7 @@ main() {
   export TEAMWORK_URI="$2"
   export TEAMWORK_API_TOKEN="$3"
   export AUTOMATIC_TAGGING="$4"
+  export AUTOMATIC_TAGGING="$5"
 
   env::set_environment
 
@@ -48,6 +49,8 @@ main() {
       teamwork::pull_request_review_submitted
     elif [ "$event" == "pull_request_review" ] && [ "$action" == "dismissed" ]; then
       teamwork::pull_request_review_dismissed
+    elif [ "$event" == "schedule" ]; then
+      teamwork::reminder
     else
       log::message "Operation not allowed"
       exit 0

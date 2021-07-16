@@ -68,6 +68,22 @@ teamwork::remove_tag() {
   fi
 }
 
+teamwork::reminder() {
+  local -r pr_url=$(github::get_pr_url)
+  local -r pr_title=$(github::get_pr_title)
+  local -r user=$(github::get_sender_user)
+  local -r pr_stats=$(github::get_pr_patch_stats)
+  local -r pr_body=$(github::get_pr_body)
+  IFS=" " read -r -a pr_stats_array <<< "$pr_stats"
+
+  teamwork::add_comment "
+PR is still open: **$pr_title**
+[$pr_url]($pr_url)
+
+Please review and provide feedback or merge and release
+  "
+}
+
 teamwork::pull_request_opened() {
   local -r pr_url=$(github::get_pr_url)
   local -r pr_title=$(github::get_pr_title)
